@@ -50,27 +50,6 @@
 
   </div>
 
-  <div fxFill>
-
-      <h1>Casos en una entidad, AGRUPADOS por clasificación final y AGRUPADOS por sexo,</h1>
-      <select [(ngModel)]="selectClasificacionFinal" >
-        <option *ngFor="let entidad of entidades" [ngValue]="entidad.id" >
-          {{entidad.nombre}}
-        </option>
-      </select>
-      <button (click)="obtenerClasificacionFinal()" > </button>
-
-      <div *ngFor="let item of listaClasificacionFinalEntidad">
-        <h3 >
-          {{item.clasificacionFinal.nombre}}
-        </h3>
-        <ul >
-          <li>{{item.sexo.nombre}}: {{item.cantidad}}</li>
-        </ul>
-      </div>
-
-  </div>
-
   <div fxFill >
     <h1>Puntos cantidad de defunciones por municipio:</h1>
     <app-defunciones-por-municipio></app-defunciones-por-municipio>
@@ -83,7 +62,25 @@
     </p>
   </div>
 
+  <div fxFill>
+    <h1>Casos en una entidad, AGRUPADOS por clasificación final y AGRUPADOS por sexo,</h1>
+    <select [(ngModel)]="selectClasificacionFinal" >
+      <option *ngFor="let entidad of entidades" [ngValue]="entidad.id" >
+        {{entidad.nombre}}
+      </option>
+    </select>
+    <button (click)="obtenerClasificacionFinal()" >Buscar</button>
 
+    <div *ngFor="let item of listaClasificacionFinalEntidad">
+      <h3 >
+        {{item.clasificacionFinal.nombre}}
+      </h3>
+      <ul >
+        <li>{{item.sexo.nombre}}: {{item.cantidad}}</li>
+      </ul>
+    </div>
+
+  </div>
 
   <!-- Footer -->
   <footer>
